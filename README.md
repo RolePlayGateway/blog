@@ -1,51 +1,34 @@
-melody
+RPG Blog
 ======
-[![Build Status](https://img.shields.io/travis/martindale/melody.svg?branch=master&style=flat-square)](https://travis-ci.org/martindale/melody)
-[![Coverage Status](https://img.shields.io/coveralls/martindale/melody.svg?style=flat-square)](https://coveralls.io/r/martindale/melody)
-[![Community](https://chat.maki.io/badge.svg)](https://chat.maki.io/)
-
-simple, self-hosted publishing platform.
+Source code for RolePlayGateway's Blog.
 
 ## Quick Start
-After running `npm install`, simply type `npm start`.  If it's your first time,
-melody will automatically create an admin user and generate a random password.
+You'll want to get your own fork of this repository by clicking "fork" in the
+top right hand corner.  Once complete, setup should be as follows:
 
-Extra config values, such as character limit and allowing public registrations,
-are available in `config/index.js` for your convenience.
-
-## API
-melody has a fully functional REST API, including an events API that is provided
-over WebSockets.  To see documentation, visit your melody instance's API URL:
-
-http://localhost:3000/api
-
-This API is automatically provided by [Maki][maki], the web framework used to
-build melody.
-
-## Hosting
-We strongly recommend using `pm2` to manage melody in production.  You can use
-the included `melody.js` to keep your instance named clearly.  To run melody
-using `pm2`, simply:
-
-`pm2 start melody.js`
-
-Which will produce the following output:
-
-```
-┌──────────┬────┬──────┬───────┬────────┬─────────┬────────┬─────────────┬──────────┐
-│ App name │ id │ mode │ pid   │ status │ restart │ uptime │ memory      │ watching │
-├──────────┼────┼──────┼───────┼────────┼─────────┼────────┼─────────────┼──────────┤
-│ melody   │ 0  │ fork │ 25957 │ online │ 0       │ 0s     │ 10.906 MB   │ disabled │
-└──────────┴────┴──────┴───────┴────────┴─────────┴────────┴─────────────┴──────────┘
+```bash
+git clone git@github.com:YOUR_USERNAME/blog.git blog.roleplaygateway.com
+cd blog.roleplaygateway.com
+git remote add upstream git@github.com:RolePlayGateway/blog.git
 ```
 
-See `pm2 help` for other instructions, such as startup scripts and monitoring.
+Now, install all the dependencies:
 
-## Using as a Library
-melody was built with [Maki][maki], so it can also be used as a library:
-
-```js
-var melody = require('melody');
+```bash
+npm install
 ```
 
-[maki]: https://maki.io
+Run a copy of the blog locally, but be on the lookout for a password: you'll
+only see it once!
+
+```bash
+node rpg\:blog.js
+```
+
+You might want a tool like `nodemon` to automatically restart the blog if you
+make changes to the internals: `npm install nodemon -g` – running the blog this
+way is very simple, just replace `node` with `nodemon`, resulting in:
+
+```
+nodemon rpg\:blog.js
+```
